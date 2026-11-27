@@ -1,0 +1,2038 @@
+/* =========================================
+   1. IMPORT FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================
+   2. ROOT VARIABLE
+========================================= */
+
+:root {
+    --ink: #172235;
+    --muted: #7d8798;
+    --paper: #f5f6f8;
+    --white: #fff;
+
+    --navy: #101827;
+    --navy2: #1b2a40;
+
+    --blue: #5b83f5;
+    --blue-dark: #4168d9;
+
+    --cyan: #9de4df;
+    --orange: #ffbd83;
+
+    --line: #e9edf2;
+    --green: #27856f;
+
+    --shadow: 0 18px 55px rgba(22, 35, 55, .08);
+    --radius: 22px;
+}
+
+
+/* =========================================
+   3. RESET CSS
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+}
+
+.wrap {
+    width: min(1160px, calc(100% - 48px));
+    margin: auto;
+}
+
+
+/* =========================================
+   4. ANNOUNCEMENT
+========================================= */
+
+.announcement {
+    background: var(--navy);
+    color: #dbe5f4;
+    text-align: center;
+    padding: 9px 15px;
+    font-size: 11px;
+    letter-spacing: .35px;
+}
+
+
+/* =========================================
+   5. HEADER
+========================================= */
+
+.site-header {
+    background: rgba(255, 255, 255, .94);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 5px 25px rgba(16, 24, 39, .045);
+}
+
+.header-main {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+
+/* LOGO */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--ink);
+    font: 800 16px 'Manrope', sans-serif;
+    letter-spacing: .7px;
+    white-space: nowrap;
+}
+
+.brand > span:last-child {
+    line-height: 1.15;
+}
+
+.brand b {
+    color: var(--blue);
+}
+
+.brand small {
+    display: block;
+    color: #98a1af;
+    font-size: 8px;
+    letter-spacing: 2.3px;
+    margin-top: 5px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: var(--navy);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    letter-spacing: -2px;
+    box-shadow: 0 7px 18px #10182730;
+}
+
+.brand-mark span {
+    color: var(--cyan);
+}
+
+
+/* =========================================
+   6. SEARCH BOX
+========================================= */
+
+.search-box {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 570px;
+    background: #f5f7fa;
+    border: 1px solid #edf0f4;
+    border-radius: 14px;
+    padding: 4px 5px 4px 15px;
+    transition: .25s;
+}
+
+.search-box:focus-within {
+    background: white;
+    border-color: #a9bdfa;
+    box-shadow: 0 0 0 4px #5b83f51a;
+}
+
+.search-icon {
+    font-size: 25px;
+    color: #8b95a6;
+    transform: rotate(-20deg);
+}
+
+.search-box input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    min-width: 0;
+    flex: 1;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.search-box button {
+    background: var(--navy);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.search-box button:hover {
+    background: var(--blue);
+}
+
+
+/* =========================================
+   7. HEADER ACTIONS
+========================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-left: auto;
+}
+
+.icon-action {
+    position: relative;
+    background: transparent;
+    color: var(--ink);
+    display: grid;
+    justify-items: center;
+    gap: 2px;
+    font-size: 20px;
+}
+
+.icon-action small {
+    font-size: 10px;
+    color: #667185;
+    font-weight: 600;
+}
+
+.icon-action i {
+    position: absolute;
+    top: -5px;
+    right: -9px;
+    background: var(--blue);
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    min-width: 18px;
+    height: 18px;
+    font: 700 9px 'DM Sans';
+    display: grid;
+    place-items: center;
+    font-style: normal;
+}
+
+.mobile-menu {
+    display: none;
+    background: var(--navy);
+    color: white;
+    border-radius: 10px;
+    padding: 8px 11px;
+}
+
+
+/* =========================================
+   8. NAVIGATION
+========================================= */
+
+.nav-bar {
+    border-top: 1px solid #f1f2f5;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    min-height: 48px;
+}
+
+.nav-link {
+    background: transparent;
+    color: #7c8798;
+    font-size: 11px;
+    font-weight: 700;
+    position: relative;
+    height: 48px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--blue);
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--blue);
+    border-radius: 5px;
+}
+
+.nav-note {
+    margin-left: auto;
+    font-size: 10px;
+    color: #a0a8b4;
+}
+
+.nav-note b {
+    color: #f0a66e;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   9. MAIN CONTENT
+========================================= */
+
+.main-content {
+    padding-top: 34px;
+    padding-bottom: 85px;
+    min-height: 65vh;
+}
+
+.page {
+    display: none;
+    animation: pageIn .4s ease both;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* ANIMATION PAGE */
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   10. HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 390px;
+    background: linear-gradient(
+        115deg,
+        #101827 0%,
+        #1a2c45 64%,
+        #263c5c 100%
+    );
+
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 55px 7%;
+    color: white;
+    isolation: isolate;
+}
+
+.hero-copy {
+    max-width: 530px;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* LABEL HERO */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #b9d8df;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 5px #9de4df20;
+}
+
+.eyebrow.dark {
+    color: #73819a;
+}
+
+
+/* JUDUL HERO */
+
+.hero h1 {
+    font: 800 clamp(36px, 5vw, 57px)/1.12 'Manrope', sans-serif;
+    letter-spacing: -2.4px;
+    margin: 20px 0 15px;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--cyan);
+}
+
+.hero p {
+    max-width: 410px;
+    color: #bdc8d7;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   11. BUTTON
+========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 12px;
+    padding: 13px 19px;
+    font-size: 11px;
+    font-weight: 800;
+    transition:
+        transform .22s,
+        box-shadow .22s,
+        background .22s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn span {
+    font-size: 17px;
+    line-height: 10px;
+}
+
+.btn-light {
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 9px 24px #0002;
+}
+
+.btn-light:hover {
+    background: var(--cyan);
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--blue);
+    box-shadow: 0 9px 22px #5b83f52d;
+}
+
+.btn-ghost {
+    background: #f1f3f7;
+    color: #687487;
+}
+
+.btn-ghost:hover {
+    background: #e7ebf2;
+}
+
+.full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   12. HERO DECORATION
+========================================= */
+
+.hero-proof {
+    margin-top: 26px;
+    color: #9caec0;
+    font-size: 10px;
+}
+
+.hero-proof span {
+    color: var(--orange);
+    margin-right: 7px;
+}
+
+.hero-visual {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 330px;
+    height: 330px;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+
+.hero-disc {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #b9f1e7, #76b7c3);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 25px 70px #0005;
+    transform: rotate(-12deg);
+    animation: float 5s ease-in-out infinite;
+}
+
+.hero-disc span {
+    font: 800 105px/.9 'Manrope';
+    letter-spacing: -12px;
+}
+
+.hero-disc small {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #b6d9e43d;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+.orbit-one {
+    width: 310px;
+    height: 190px;
+}
+
+.orbit-two {
+    width: 270px;
+    height: 310px;
+    transform: rotate(45deg);
+}
+
+.float-card {
+    position: absolute;
+    background: #fff;
+    color: var(--ink);
+    padding: 12px 15px;
+    border-radius: 13px;
+    box-shadow: 0 12px 35px #0003;
+    font-size: 10px;
+}
+
+.float-top {
+    top: 39px;
+    right: 0;
+    color: #e5a15e;
+}
+
+.float-top b {
+    color: var(--ink);
+    margin-left: 4px;
+}
+
+.float-bottom {
+    bottom: 37px;
+    left: 0;
+}
+
+.float-bottom span {
+    color: var(--blue);
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: #4b76dc38;
+    filter: blur(50px);
+    right: 2%;
+    top: -30%;
+    z-index: -1;
+}
+
+
+/* ANIMATION HERO */
+
+@keyframes float {
+    50% {
+        transform: translateY(-10px) rotate(-8deg);
+    }
+}
+
+
+/* =========================================
+   13. BENEFIT STRIP
+========================================= */
+
+.benefit-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 18px 0 54px;
+}
+
+.benefit-strip > div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 15px 18px;
+}
+
+.benefit-strip > div > span {
+    width: 35px;
+    height: 35px;
+    border-radius: 11px;
+    background: #edf2ff;
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.benefit-strip b,
+.benefit-strip small {
+    display: block;
+}
+
+.benefit-strip b {
+    font-size: 11px;
+}
+
+.benefit-strip small {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   14. SECTION HEADING
+========================================= */
+
+.section-block {
+    margin-top: 47px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.section-heading h2,
+.page-intro h1 {
+    font: 800 27px 'Manrope';
+    letter-spacing: -.8px;
+    margin-top: 6px;
+}
+
+.section-heading p,
+.page-intro p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   15. CATEGORY
+========================================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.category-tile {
+    min-height: 145px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    padding: 20px;
+    border-radius: 18px;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: .25s;
+}
+
+.category-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.category-tile > span {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.category-tile b {
+    font-size: 13px;
+}
+
+.category-tile small {
+    font-size: 9px;
+    color: #667185;
+    margin-top: 3px;
+}
+
+.category-tile i {
+    position: absolute;
+    right: 17px;
+    bottom: 16px;
+    font-style: normal;
+    font-size: 18px;
+}
+
+
+/* WARNA KATEGORI */
+
+.category-electronic {
+    background: #e8efff;
+}
+
+.category-fashion {
+    background: #f9eade;
+}
+
+.category-accessory {
+    background: #e5f3ef;
+}
+
+.category-home {
+    background: #f0eafa;
+}
+
+
+/* =========================================
+   16. PRODUCT SECTION
+========================================= */
+
+.products-section {
+    margin-top: 55px;
+}
+
+.result-count {
+    font-size: 10px;
+    color: var(--muted);
+    padding-bottom: 5px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .28s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 17px 40px #17223512;
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image {
+    height: 190px;
+    background: #f0f2f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ffffffdf;
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    padding: 5px 9px;
+    font-size: 8px;
+    font-weight: 800;
+    color: #56647a;
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info small {
+    font-size: 9px;
+    color: var(--blue);
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.product-info h3 {
+    font-size: 13px;
+    margin: 5px 0 9px;
+    min-height: 20px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.price {
+    font: 800 14px 'Manrope';
+    color: var(--ink);
+}
+
+
+/* BUTTON ADD TO CART */
+
+.add-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--navy);
+    color: white;
+    font-size: 20px;
+    transition: .2s;
+}
+
+.add-btn:hover {
+    background: var(--blue);
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   17. PAGE INTRO
+========================================= */
+
+.page-intro {
+    margin: 13px 0 27px;
+}
+
+.page-intro h1 {
+    font-size: 32px;
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   18. CONTENT COLUMNS
+========================================= */
+
+.content-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(270px, .8fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.surface {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 30px #17223506;
+}
+
+.cart-surface {
+    min-height: 250px;
+}
+
+.summary-card {
+    position: sticky;
+    top: 155px;
+}
+
+.summary-card h3,
+.checkout-form-card h3 {
+    font: 800 17px 'Manrope';
+    margin: 7px 0 22px;
+}
+
+
+/* =========================================
+   19. SUMMARY CARD
+========================================= */
+
+.summary-line,
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    font-size: 11px;
+    margin: 15px 0;
+    color: #768194;
+}
+
+.summary-line b {
+    color: var(--ink);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.summary-total {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-top: 20px;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.summary-total b {
+    font: 800 19px 'Manrope';
+}
+
+.secure-note {
+    font-size: 9px;
+    color: #97a0ad;
+    text-align: center;
+    margin-top: 17px;
+}
+
+
+/* =========================================
+   20. CART ITEM
+========================================= */
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 85px 1fr auto;
+    gap: 17px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-item:first-child {
+    padding-top: 0;
+}
+
+.cart-item:last-child {
+    border-bottom: 0;
+}
+
+.cart-item img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 13px;
+    background: #f1f2f4;
+}
+
+.cart-item h4 {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.cart-item strong {
+    font-size: 12px;
+}
+
+
+/* QUANTITY */
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 9px;
+}
+
+.quantity button {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    background: #f0f2f6;
+    color: var(--ink);
+    font-weight: 800;
+}
+
+.quantity span {
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.remove-btn {
+    background: transparent;
+    color: #c36d6d;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 8px;
+}
+
+
+/* =========================================
+   21. EMPTY STATE
+========================================= */
+
+.empty-state {
+    text-align: center;
+    padding: 55px 15px;
+}
+
+.empty-state .empty-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+}
+
+.empty-state p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 6px 0 18px;
+}
+
+
+/* =========================================
+   22. ACCOUNT SECTION
+========================================= */
+
+.account-shell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    margin: 28px auto;
+    min-height: 530px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+
+/* ACCOUNT ART */
+
+.account-art {
+    background: linear-gradient(145deg, #101827, #263e60);
+    color: white;
+    padding: 55px 45px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-art-mark {
+    font: 800 70px 'Manrope';
+    color: var(--cyan);
+    margin-bottom: 35px;
+    letter-spacing: -8px;
+}
+
+.account-art-mark span {
+    color: white;
+}
+
+.account-art h2 {
+    font: 800 34px/1.2 'Manrope';
+    margin: 15px 0;
+}
+
+.account-art h2 em {
+    font-style: normal;
+    color: var(--cyan);
+}
+
+.account-art p {
+    font-size: 12px;
+    color: #b9c6d7;
+    max-width: 300px;
+    line-height: 1.8;
+}
+
+.art-decoration {
+    position: absolute;
+    right: -25px;
+    bottom: -70px;
+    font-size: 230px;
+    color: #ffffff0a;
+}
+
+
+/* ACCOUNT FORM */
+
+.account-form {
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 55px 48px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.account-form h2 {
+    font: 800 27px 'Manrope';
+    margin-top: 8px;
+}
+
+.account-form .muted {
+    font-size: 11px;
+    margin: 5px 0 22px;
+}
+
+
+/* =========================================
+   23. FORM INPUT
+========================================= */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 14px 0;
+}
+
+.field label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #586579;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    border: 1px solid #e7ebf1;
+    border-radius: 11px;
+    padding: 12px 13px;
+    outline: 0;
+    background: #fafbfc;
+    font-size: 11px;
+    color: var(--ink);
+    transition: .2s;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    border-color: #9bb2fa;
+    background: white;
+    box-shadow: 0 0 0 3px #5b83f51a;
+}
+
+.field textarea {
+    resize: vertical;
+}
+
+
+/* =========================================
+   24. LOGIN AND REGISTER
+========================================= */
+
+.switch-text {
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+.switch-text button {
+    background: transparent;
+    color: var(--blue);
+    font-weight: 800;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.message {
+    font-size: 10px;
+    margin: 8px 0;
+    min-height: 15px;
+}
+
+.message.error {
+    color: #c65e5e;
+}
+
+.message.success {
+    color: var(--green);
+}
+
+
+/* =========================================
+   25. PROFILE
+========================================= */
+
+.profile-area {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    background: #eaf0ff;
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+}
+
+.profile-area h2 {
+    margin: 8px 0 3px;
+}
+
+
+/* =========================================
+   26. CHECKOUT
+========================================= */
+
+.checkout-form-card h3 {
+    margin-top: 0;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.payment-title {
+    margin: 26px 0 13px !important;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 13px;
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+.payment-option input {
+    accent-color: var(--blue);
+}
+
+.payment-option b,
+.payment-option small {
+    display: block;
+}
+
+.payment-option b {
+    font-size: 11px;
+}
+
+.payment-option small {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+
+/* CHECKOUT ITEM */
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 10px;
+}
+
+.checkout-item strong {
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   27. HISTORY
+========================================= */
+
+.history-list {
+    display: grid;
+    gap: 15px;
+}
+
+.history-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 8px 25px #17223505;
+}
+
+.history-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: start;
+    margin-bottom: 13px;
+}
+
+.history-card h3 {
+    font: 800 14px 'Manrope';
+    overflow-wrap: anywhere;
+}
+
+.history-card p {
+    font-size: 10px;
+    color: #7b8696;
+    margin: 5px 0;
+}
+
+
+/* STATUS PESANAN */
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 30px;
+    background: #eaf5f1;
+    color: #27856f;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.status.cancelled {
+    background: #fff0ef;
+    color: #c65e5e;
+}
+
+
+/* HISTORY BUTTON */
+
+.history-actions {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.receipt-btn,
+.cancel-btn {
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 9px;
+    font-weight: 800;
+    background: #eef2ff;
+    color: #4c6dd0;
+}
+
+.cancel-btn {
+    background: #fff0ef;
+    color: #bd6868;
+}
+
+.cancel-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   28. RECEIPT / BUKTI TRANSAKSI
+========================================= */
+
+.receipt-paper {
+    width: min(620px, 100%);
+    margin: 0 auto;
+    background: white;
+    padding: 38px 42px;
+    border: 1px solid #e6e9ee;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+
+/* DEKORASI KERTAS */
+
+.receipt-paper::before,
+.receipt-paper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 9px;
+    background: radial-gradient(
+        circle at 5px 0,
+        transparent 7px,
+        #fff 7.5px
+    ) repeat-x;
+    background-size: 14px 14px;
+}
+
+.receipt-paper::before {
+    top: -1px;
+    transform: rotate(180deg);
+}
+
+.receipt-paper::after {
+    bottom: -8px;
+}
+
+
+/* RECEIPT HEADER */
+
+.paper-header {
+    text-align: center;
+    border-bottom: 1px dashed #d8dde5;
+    padding-bottom: 22px;
+    margin-bottom: 20px;
+}
+
+.paper-header h2 {
+    font: 800 23px 'Manrope';
+    letter-spacing: 2px;
+}
+
+.paper-header p {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+
+/* RECEIPT SECTION */
+
+.paper-section {
+    margin: 20px 0;
+}
+
+.paper-section h4 {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #7d8798;
+    margin-bottom: 10px;
+}
+
+.paper-detail {
+    font-size: 10px;
+    line-height: 1.9;
+    color: #4d5868;
+    overflow-wrap: anywhere;
+}
+
+
+/* RECEIPT ITEM */
+
+.paper-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dashed #edf0f4;
+}
+
+
+/* RECEIPT TOTAL */
+
+.paper-total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px dashed #cbd2dc;
+    padding-top: 15px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.paper-total span:last-child {
+    font: 800 18px 'Manrope';
+}
+
+
+/* RECEIPT FOOTER */
+
+.paper-footer {
+    text-align: center;
+    border-top: 1px dashed #d8dde5;
+    padding-top: 20px;
+    margin-top: 24px;
+    font-size: 9px;
+    color: #818b99;
+    line-height: 1.8;
+}
+
+.paper-footer strong {
+    color: var(--ink);
+}
+
+.receipt-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 23px 0;
+}
+
+
+/* =========================================
+   29. FOOTER
+========================================= */
+
+.site-footer {
+    background: var(--navy);
+    color: white;
+    padding: 30px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    color: white;
+}
+
+.footer-inner p {
+    font-size: 10px;
+    color: #aab6c7;
+}
+
+.footer-inner > small {
+    color: #8e9caf;
+    font-size: 9px;
+}
+
+
+/* =========================================
+   30. TOAST NOTIFICATION
+========================================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    pointer-events: none;
+    background: var(--navy);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 11px;
+    box-shadow: 0 10px 30px #0003;
+    z-index: 50;
+    transition: .3s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* =========================================
+   31. RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .header-main {
+        gap: 20px;
+    }
+
+    .hero-visual {
+        right: 1%;
+        opacity: .72;
+    }
+
+    .hero-copy {
+        max-width: 490px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .content-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        position: static;
+    }
+
+    .account-shell {
+        max-width: 700px;
+    }
+
+    .account-form {
+        padding: 40px 30px;
+    }
+}
+
+
+/* =========================================
+   32. RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .wrap {
+        width: min(100% - 30px, 560px);
+    }
+
+    .announcement {
+        font-size: 9px;
+    }
+
+    .header-main {
+        min-height: 70px;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .brand {
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    .header-actions {
+        gap: 12px;
+    }
+
+    .icon-action small {
+        display: none;
+    }
+
+    .icon-action {
+        font-size: 19px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+
+    /* MOBILE SEARCH */
+
+    .search-box {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+        height: 42px;
+    }
+
+
+    /* MOBILE NAVIGATION */
+
+    .nav-bar {
+        display: none;
+    }
+
+    .nav-bar.open {
+        display: block;
+    }
+
+    .nav-inner {
+        flex-wrap: wrap;
+        gap: 0;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .nav-link {
+        height: 35px;
+        margin-right: 18px;
+    }
+
+    .nav-note {
+        display: none;
+    }
+
+
+    /* MOBILE MAIN */
+
+    .main-content {
+        padding-top: 20px;
+        padding-bottom: 55px;
+    }
+
+
+    /* MOBILE HERO */
+
+    .hero {
+        min-height: 430px;
+        padding: 35px 25px;
+        align-items: flex-start;
+    }
+
+    .hero-copy {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1.7px;
+    }
+
+    .hero p {
+        font-size: 11px;
+        max-width: 290px;
+    }
+
+    .hero-visual {
+        width: 190px;
+        height: 190px;
+        right: 0;
+        top: auto;
+        bottom: -13px;
+        transform: none;
+        opacity: .55;
+    }
+
+    .hero-disc {
+        width: 135px;
+        height: 135px;
+    }
+
+    .hero-disc span {
+        font-size: 70px;
+    }
+
+    .hero-disc small {
+        font-size: 6px;
+    }
+
+    .orbit-one {
+        width: 180px;
+        height: 110px;
+    }
+
+    .orbit-two {
+        width: 150px;
+        height: 180px;
+    }
+
+    .float-card {
+        display: none;
+    }
+
+
+    /* MOBILE BENEFIT */
+
+    .benefit-strip {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin: 12px 0 40px;
+    }
+
+    .benefit-strip > div {
+        padding: 11px 14px;
+    }
+
+    .benefit-strip > div > span {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    /* MOBILE SECTION */
+
+    .section-block {
+        margin-top: 38px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .section-heading p {
+        font-size: 10px;
+    }
+
+
+    /* MOBILE CATEGORY */
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .category-tile {
+        min-height: 125px;
+        padding: 15px;
+    }
+
+
+    /* MOBILE PRODUCT */
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product-image {
+        height: 145px;
+    }
+
+    .product-info {
+        padding: 11px;
+    }
+
+    .product-info h3 {
+        font-size: 11px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .product-label {
+        font-size: 7px;
+    }
+
+    .add-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    /* MOBILE PAGE */
+
+    .page-intro h1 {
+        font-size: 27px;
+    }
+
+    .surface {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+
+    /* MOBILE ACCOUNT */
+
+    .account-shell {
+        grid-template-columns: 1fr;
+        margin: 5px auto;
+        gap: 0;
+    }
+
+    .account-art {
+        min-height: 240px;
+        padding: 28px;
+    }
+
+    .account-art-mark {
+        font-size: 43px;
+        margin-bottom: 12px;
+    }
+
+    .account-art h2 {
+        font-size: 25px;
+        margin: 8px 0;
+    }
+
+    .account-art p {
+        font-size: 10px;
+    }
+
+    .account-form {
+        padding: 30px 23px;
+    }
+
+
+    /* MOBILE FORM */
+
+    .field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    /* MOBILE CART */
+
+    .cart-item {
+        grid-template-columns: 65px 1fr auto;
+        gap: 10px;
+    }
+
+    .cart-item img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .cart-item h4 {
+        font-size: 11px;
+    }
+
+    .remove-btn {
+        font-size: 9px;
+    }
+
+
+    /* MOBILE RECEIPT */
+
+    .receipt-paper {
+        padding: 30px 22px;
+    }
+
+    .receipt-actions {
+        flex-direction: column;
+    }
+
+
+    /* MOBILE FOOTER */
+
+    .footer-inner {
+        gap: 12px;
+    }
+
+    .footer-inner p {
+        flex-basis: 100%;
+    }
+
+    .footer-inner > small {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================
+   33. PRINT / CETAK BUKTI TRANSAKSI
+========================================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    .announcement,
+    .site-header,
+    .site-footer,
+    .page-intro,
+    .receipt-actions,
+    .toast {
+        display: none !important;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .page {
+        display: none !important;
+    }
+
+    #receiptPage {
+        display: block !important;
+    }
+
+    .receipt-paper {
+        box-shadow: none;
+        border: 0;
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .receipt-paper::before,
+    .receipt-paper::after {
+        display: none;
+    }
+}
